@@ -1,0 +1,9 @@
+@include font-load("PTRootUIWebBold", pt-root-ui_bold, normal, normal);
+@include font-load("PTRootUIWebRegular", pt-root-ui_regular, normal, normal);
+@include font-load("PTRootUIWebLight", pt-root-ui_light, normal, normal);
+
+@include font-load("Rubik", Rubik-Bold, bold, normal);
+@include font-load("Rubik", Rubik-Medium, 500, normal);
+
+@include font-load("Bebas Neue", BebasNeueBold, bold, normal);
+@include font-load("Bebas Neue", BebasNeueRegular, normal, normal);

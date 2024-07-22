@@ -1,0 +1,48 @@
+@import "@/sass/helpers/variables";
+@import "@/sass/helpers/mixins.scss";
+
+.notfound {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 100%;
+  min-height: 100vh;
+}
+
+.notfound__title {
+  @include font("Bebas Neue");
+  padding: 0 8px;
+  font-weight: bold;
+  font-size: 150px;
+  line-height: 1;
+  text-transform: uppercase;
+  color: $red;
+  margin: 20vh 0 5px;
+}
+
+.notfound__text {
+  @include font("Bebas Neue");
+  font-weight: bold;
+  font-size: 80px;
+  line-height: 1;
+  color: $red;
+  margin: 0 0 5px;
+}
+
+.notfound__main {
+  @include font("Bebas Neue");
+  font-weight: bold;
+  font-size: 45px;
+  line-height: 1;
+  color: $red;
+  margin: auto 0 60px;
+  padding: 0;
+  border: 0;
+  background-color: transparent;
+  border-bottom: 1px solid $red;
+  cursor: pointer;
+  &:hover {
+    opacity: 0.7;
+  }
+}

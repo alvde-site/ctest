@@ -1,0 +1,54 @@
+@import "@/sass/helpers/variables";
+@import "@/sass/helpers/mixins.scss";
+
+.beans {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 90vh;
+  &__title {
+    @include font("Rubik");
+    color: $red;
+    font-size: 62px;
+    line-height: 1.1;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: bold;
+    font-style: normal;
+    padding: 18px 62px;
+    border: 1px solid $red;
+    border-radius: 52px;
+    &:hover {
+      color: $navy;
+      border: none;
+    }
+
+    @include mw($ph) {
+      font-size: 18px;
+      text-align: left;
+    }
+  }
+
+  &__wrap {
+    display: grid;
+    grid-template-columns: 3fr 4fr;
+    gap: 79px;
+    max-width: 1098px;
+    width: 100%;
+    margin: 0 auto;
+    @include mw($ph) {
+      grid-template-columns: 1fr;
+      gap: 10px;
+      align-content: center;
+    }
+  }
+
+  &__image {
+    max-width: 434px;
+    width: 100%;
+    display: block;
+    @include mw($ph) {
+      margin: 0 auto;
+    }
+  }
+}
