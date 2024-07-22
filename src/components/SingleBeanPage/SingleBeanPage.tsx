@@ -4,7 +4,7 @@ import { useAppSelector } from "../../app/hooks";
 import { selectBeanById } from "../../app/reducers/beanSlice";
 import styles from "./SingleBeanPage.module.scss";
 import clsx from "clsx";
-import { FUNNY_CATS } from "../../utils/constants";
+import { FUNNY_CATS, GO_BACK } from "../../utils/constants";
 
 const SingleBeanPage: FC = () => {
   const { beanId } = useParams();
@@ -18,9 +18,9 @@ const SingleBeanPage: FC = () => {
   if (!bean) {
     return (
       <main>
-        <h2 className={clsx(styles.bean__title)}>Beans not found by id!</h2>
+        <h2 className={clsx(styles.bean__title)}>Cat not found by id!</h2>
         <button className={clsx(styles.bean__back)} onClick={handleBack}>
-          Go back to cats!
+          {GO_BACK}
         </button>
       </main>
     );
@@ -32,7 +32,7 @@ const SingleBeanPage: FC = () => {
         <h2 className={clsx(styles.bean__title)}>{FUNNY_CATS}</h2>
         <img src={bean.url} alt={FUNNY_CATS} />
         <button className={clsx(styles.bean__back)} onClick={handleBack}>
-          Back to cats &#8594;
+          {GO_BACK}
         </button>
       </article>
     </main>

@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import styles from "./PageNotFound.module.scss";
 import clsx from "clsx";
 import type { FC } from "react";
+import { GO_BACK } from "../../utils/constants";
 
 const PageNotFound: FC = () => {
   const navigate = useNavigate();
@@ -13,7 +14,7 @@ const PageNotFound: FC = () => {
       <h3 className={clsx(styles.notfound__title)}>404</h3>
       <p className={clsx(styles.notfound__text)}>Page not found</p>
       <button className={clsx(styles.notfound__main)} onClick={handleBack}>
-        Back to beans
+        {GO_BACK}
       </button>
     </div>
   );

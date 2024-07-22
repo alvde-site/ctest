@@ -13,6 +13,7 @@ import {
   setOffset,
 } from "../../app/reducers/beanSlice";
 import { fetchData } from "../../api/fetchData";
+import { EXPLORE } from "../../utils/constants";
 
 const Home: FC = () => {
   const navigate = useNavigate();
@@ -73,7 +74,7 @@ const Home: FC = () => {
               onMouseEnter={() => setIsHover(true)}
               onMouseLeave={() => setIsHover(false)}
             >
-              Explore Beans ...
+              {EXPLORE}
             </h1>
           </Link>
         </section>

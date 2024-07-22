@@ -15,7 +15,7 @@ import {
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { Link } from "react-router-dom";
 import { handleToElementScroll } from "../../utils/utils";
-import { FUNNY_CATS } from "../../utils/constants";
+import { EXPLORE_ALL, FUNNY_CATS } from "../../utils/constants";
 
 const Bean: FC<TBean> = ({ title, imageUrl, description, id }) => {
   const mainElement = document.getElementsByTagName("body");
@@ -56,14 +56,13 @@ const Bean: FC<TBean> = ({ title, imageUrl, description, id }) => {
 const Beans: FC = () => {
   const timesRender = useRef(0);
   const dispatch = useAppDispatch();
-  const beans = useAppSelector(selectAllBeans);
+  const cats = useAppSelector(selectAllBeans);
   const [isLoading, setIsLoading] = useState(false);
   const totalPages = useAppSelector(selectTotalPages);
   const PORTION_OF_ITEMS = 12;
   const offset = useAppSelector(selectOffset);
 
   const fetchBeans = useCallback(async () => {
-    console.log("работает");
     if (isLoading) return;
     setIsLoading(true);
     fetchData
@@ -81,7 +80,7 @@ const Beans: FC = () => {
 
   //Initial fetch
   useEffect(() => {
-    if (!timesRender.current && !beans.length) {
+    if (!timesRender.current && !cats.length) {
       timesRender.current = 1;
       dispatch(setBeans({ items: [] }));
       dispatch(setOffset());
@@ -99,7 +98,7 @@ const Beans: FC = () => {
           console.log(err);
         });
     }
-  }, [beans, dispatch, offset]);
+  }, [cats, dispatch, offset]);
 
   // scroll fetch
   useEffect(() => {
@@ -117,10 +116,10 @@ const Beans: FC = () => {
 
   return (
     <main className={clsx(styles.main)}>
-      <h2 className={clsx(styles.main__title)}>Explore All Beans ...</h2>
+      <h2 className={clsx(styles.main__title)}>{EXPLORE_ALL}</h2>
       <ul className={clsx(styles.main__content, styles.content)}>
-        {beans &&
-          beans.map(e => (
+        {cats &&
+          cats.map(e => (
             <Bean
               title={FUNNY_CATS}
               imageUrl={e.url}
