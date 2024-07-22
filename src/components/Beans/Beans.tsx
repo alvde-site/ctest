@@ -37,15 +37,8 @@ const Bean: FC<TBean> = ({ title, imageUrl, description, id }) => {
           })}
           onClick={moveToTop}
         >
-          <h3 className={clsx(styles.card__title)}>
-            {title}
-            <span style={{ color: "#01b9c5" }}>{`...${id}`}</span>
-          </h3>
-          <img
-            src={imageUrl}
-            alt="Картинка"
-            className={clsx(styles.card__image)}
-          />
+          <h3 className={clsx(styles.card__title)}>{title}</h3>
+          <img src={imageUrl} alt={id} className={clsx(styles.card__image)} />
           <p className={styles.card__description}>{description}</p>
         </div>
       </Link>

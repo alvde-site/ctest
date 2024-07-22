@@ -1,4 +1,5 @@
 import type { TData } from "../app/reducers/beanSlice";
+import type { TSingleData } from "../components/SingleBeanPage/SingleBeanPage";
 
 type TDataHeader = {
   "Content-Type": string;
@@ -20,11 +21,18 @@ class DataApi {
 
   async getData(pageIndex: number, pageSize: number): Promise<TData> {
     const res = await fetch(
-      `${this._baseUrl}&limit=${pageSize}&page=${pageIndex}`,
+      `${this._baseUrl}search?order=asc&limit=${pageSize}&page=${pageIndex}`,
       {
         headers: this._headers,
       },
     );
+    return this._checkResponse(res);
+  }
+
+  async getSingleData(itemId: string): Promise<TSingleData> {
+    const res = await fetch(`${this._baseUrl}${itemId}`, {
+      headers: this._headers,
+    });
     return this._checkResponse(res);
   }
 
@@ -34,7 +42,7 @@ class DataApi {
 }
 
 export const fetchData = new DataApi({
-  baseUrl: "https://api.thecatapi.com/v1/images/search?order=asc",
+  baseUrl: "https://api.thecatapi.com/v1/images/",
   headers: {
     "Content-Type": "application/json",
     "x-api-key":
